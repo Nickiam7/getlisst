@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
+
+  resources :lists
   devise_for :users
 
-  get 'pages/index'
   root to: "pages#index"
 end
