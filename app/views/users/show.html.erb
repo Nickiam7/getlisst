@@ -1,5 +1,5 @@
-<h1><%= current_user.email %></h1>
+<h1><%= @user.email %></h1>
 
 <% @lists.each do |list| %>
-  <p><%= list.title %></p>
+  <p><%= link_to list.title, list_path(list) %></p>
 <% end %>
