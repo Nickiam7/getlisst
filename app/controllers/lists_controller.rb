@@ -15,6 +15,13 @@ class ListsController < ApplicationController
     end
   end
 
+  def show
+    @list = List.find(params[:id])
+    @item = Item.new
+
+    @items = @list.items.all
+  end
+
   private
 
   def list_params

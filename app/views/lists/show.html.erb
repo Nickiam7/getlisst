@@ -1,0 +1,15 @@
+<h1><%= @list.title %></h1>
+<% @items.each do |item| %>
+ <p><%= link_to item.title, list_item_path(@list, item) %></p>
+<% end %>
+<hr>
+<%= form_for [@list, @item] do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+
+  <%= f.submit %>
+<% end %>
+
