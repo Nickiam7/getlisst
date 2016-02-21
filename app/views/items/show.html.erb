@@ -1,7 +1,9 @@
 <h1><%= @item.title %></h1>
 <div>
   <% @item_subtasks.each do |subtask| %>
-  <li><%= subtask.name %></li>
+  <li>
+    <%= subtask.name %>
+  </li>
   <% end %>
 </div>
 <div>
@@ -12,9 +14,7 @@
       <% end %>
     </div>
     <div class='links'>
-      <%= link_to_add_association f, :subtasks do %>
-         Add Subtask
-      <% end %>
+      <%= link_to_add_association "Add", f, :subtasks %>
     </div>
     <div>
       <%= f.submit %>
@@ -22,4 +22,5 @@
   <% end %>
 </div>
 
-<%= link_to "Back to list", list_path(@list) %>
+<p><%= link_to "Back to list", list_path(@list) %><p>
+<p><%= @user.email %><p>
