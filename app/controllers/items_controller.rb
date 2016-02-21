@@ -13,8 +13,22 @@ class ItemsController < ApplicationController
     redirect_to list_path(@list)
   end
 
+  def show
+    @list = List.find(params[:list_id])
+    @item = @list.items.find(params[:id])
+    @item_subtasks = @item.subtasks.all
+  end
+
+  def update
+    @list = List.find(params[:list_id])
+    @item = @list.items.find(params[:id])
+    @item.update(item_params)
+    flash[:notice] = "Success"
+    redirect_to list_item_path(@list, @item)
+  end
+
   private
   def item_params
-    params.require(:item).permit(:title, :description)
+    params.require(:item).permit(:title, :description, subtasks_attributes: [:id, :name, :description, :_destroy])
   end
 end
