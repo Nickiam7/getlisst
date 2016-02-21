@@ -9,7 +9,7 @@ class ListsController < ApplicationController
     @list = current_user.lists.new(list_params)
     if @list.save
       flash[:notice] = "\"#{@list.title}\" has been created"
-      redirect_to @list
+      redirect_to user_path(current_user)
     else
       flash[:notice] = "Sorry, something went wrong"
     end
