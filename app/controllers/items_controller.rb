@@ -1,6 +1,5 @@
 class ItemsController < ApplicationController
 
-
   def create
     @list = current_user.lists.find(params[:list_id])
     @item = current_user.items.new(item_params)
@@ -16,7 +15,9 @@ class ItemsController < ApplicationController
   def show
     @list = List.find(params[:list_id])
     @item = @list.items.find(params[:id])
-    @item_subtasks = @item.subtasks.all
+    @item_subtasks = @item.subtasks
+    @user = @item.list.user
+    authorize @item
   end
 
   def update

@@ -18,8 +18,8 @@ class ListsController < ApplicationController
   def show
     @list = List.find(params[:id])
     @item = Item.new
-
     @items = @list.items.all
+    authorize @list
   end
 
   private

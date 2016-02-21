@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :lists do
+  resources :lists, except: :index do
     resources :items
   end
 
