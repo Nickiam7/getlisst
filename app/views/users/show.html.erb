@@ -1,5 +1,13 @@
-<h1><%= @user.email %></h1>
+<h1 style="margin-bottom:0;"><%= @user.username %></h1>
+<small><%= link_to "Create a New List", new_list_path %></small>
 
+<h2>Your lists</h2>
 <% @lists.each do |list| %>
   <p><%= link_to list.title, list_path(list) %></p>
 <% end %>
+
+<h2>Collaboration lists</h2>
+<% @collab_lists.each do |collab_list| %>
+  <p><%= link_to collab_list.list.title, list_path(collab_list.list_id) %></p>
+<% end %>
+
