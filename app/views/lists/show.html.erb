@@ -2,14 +2,41 @@
 <% @items.each do |item| %>
  <p><%= link_to item.title, list_item_path(@list, item) %></p>
 <% end %>
-<hr>
-<%= form_for [@list, @item] do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-
-  <%= f.label :description %>
-  <%= f.text_field :description %>
-
-  <%= f.submit %>
+<h3>Collaborators</h3>
+<% @list.collaborations.each do |collaboration| %>
+    <%= collaboration.user.username %> | <%= link_to "Remove", list_collaboration_path(@list, collaboration), method: :delete %>
+  <br>
 <% end %>
 
+<hr>
+<h3>Add Item</h3>
+<%= form_for [@list, @item] do |f| %>
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <div>
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+  </div>
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<h3>Add Collaborator</h3>
+<%= form_for [@list, @collaboration] do |f| %>
+  <% if @collaboration.errors.any? %>
+    <div class="alert alert-danger">
+      <h4>There are <%= pluralize(@collaboration.errors.count, "error") %>.</h4>
+      <ul>
+        <% @collaboration.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= label_tag "Enter collaborator username" %>
+  <%= text_field_tag :username %>
+  <%= f.submit "Add collaborator" %>
+<% end %>

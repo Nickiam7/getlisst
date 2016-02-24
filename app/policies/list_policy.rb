@@ -1,5 +1,5 @@
 class ListPolicy < ApplicationPolicy
   def show?
-    user == record.user
+    user.present? && (record.user == user || record.collaborators.include?(user))
   end
 end

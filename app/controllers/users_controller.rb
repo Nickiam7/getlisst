@@ -1,7 +1,9 @@
 class UsersController < ApplicationController
 
   def show
-    @user = current_user
-    @lists = @user.lists.all
+    @user = User.find(params[:id])
+    @lists = @user.lists
+    @collab_lists = @user.collaborations
+    authorize @user
   end
 end

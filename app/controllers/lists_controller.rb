@@ -9,7 +9,7 @@ class ListsController < ApplicationController
     @list = current_user.lists.new(list_params)
     if @list.save
       flash[:notice] = "\"#{@list.title}\" has been created"
-      redirect_to user_path(current_user)
+      redirect_to list_path(@list)
     else
       flash[:notice] = "Sorry, something went wrong"
     end
@@ -18,6 +18,7 @@ class ListsController < ApplicationController
   def show
     @list = List.find(params[:id])
     @item = Item.new
+    @collaboration = Collaboration.new
     @items = @list.items.all
     authorize @list
   end
