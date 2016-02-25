@@ -8,6 +8,7 @@
 
 <h2>Collaboration lists</h2>
 <% @collab_lists.each do |collab_list| %>
-  <p><%= link_to collab_list.list.title, list_path(collab_list.list_id) %></p>
+  <p><%= link_to collab_list.list.title, list_path(collab_list.list_id) %> | Owner: <%= collab_list.list.user.username %>
+  </p>
 <% end %>
 
