@@ -11,7 +11,11 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
 //= require cocoon
+//= require uikit
+//= require uikit/components/tooltip
 //= require turbolinks
+//= require compatibility
 //= require_tree .
