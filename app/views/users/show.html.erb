@@ -1,5 +1,5 @@
 <h1 style="margin-bottom:0;"><%= @user.username %></h1>
-<small><%= link_to "Create a New List", new_list_path %></small>
+<small><%= link_to "Create a New List", new_list_path, class: "uk-button uk-button-mini uk-button-success", data: {uk_tooltip: ""}, title: "Create a new list" %></small>
 
 <h2>Your lists</h2>
 <% @lists.each do |list| %>
