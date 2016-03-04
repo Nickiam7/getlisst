@@ -8,4 +8,8 @@ class User < ActiveRecord::Base
   has_many :items, through: :lists
   has_many :collaborations, dependent: :destroy
   has_many :collaborated_lists, through: :collaborations, source: :lists
+
+  def user_included_in_list?
+    lists.collaborations.include?(user)
+  end
 end

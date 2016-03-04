@@ -27,18 +27,8 @@
 <% if policy(@list).add_collaborators? %>
   <h3>Add Collaborator</h3>
   <%= form_for [@list, @collaboration] do |f| %>
-    <% if @collaboration.errors.any? %>
-      <div class="alert alert-danger">
-        <h4>There are <%= pluralize(@collaboration.errors.count, "error") %>.</h4>
-        <ul>
-          <% @collaboration.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
       <%= label_tag "Enter collaborator username" %>
-      <%= text_field_tag :username %>
+      <%= text_field_tag :username, nil, data: {users_source: users_path} %>
       <%= f.submit "Add collaborator" %>
   <% end %>
 <% end %>

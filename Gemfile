@@ -16,6 +16,7 @@ gem 'cocoon', '~> 1.2', '>= 1.2.7'
 gem 'pundit', '~> 1.1'
 gem 'uikit2-rails', '~> 0.1.6'
 gem 'jquery-turbolinks', '~> 2.1'
+gem 'jquery-ui-rails', '~> 5.0', '>= 5.0.5'
 
 group :development, :test do
   gem 'byebug'
