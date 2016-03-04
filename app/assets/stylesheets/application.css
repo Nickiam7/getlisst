@@ -12,5 +12,6 @@
  *
  *= require uikit.gradient
  *= require uikit/components/tooltip
+ *= require jquery-ui/autocomplete
  *= require_self
  */
