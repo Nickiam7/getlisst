@@ -17,6 +17,10 @@ gem 'pundit', '~> 1.1'
 gem 'uikit2-rails', '~> 0.1.6'
 gem 'jquery-turbolinks', '~> 2.1'
 gem 'jquery-ui-rails', '~> 5.0', '>= 5.0.5'
+gem 'carrierwave', '~> 0.10.0'
+gem 'mini_magick', '~> 4.4'
+gem 'fog', '~> 1.37'
+gem 'figaro', '~> 1.1', '>= 1.1.1'
 
 group :development, :test do
   gem 'byebug'

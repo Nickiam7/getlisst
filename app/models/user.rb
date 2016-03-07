@@ -9,7 +9,6 @@ class User < ActiveRecord::Base
   has_many :collaborations, dependent: :destroy
   has_many :collaborated_lists, through: :collaborations, source: :lists
 
-  def user_included_in_list?
-    lists.collaborations.include?(user)
-  end
+  mount_uploader :user_photo, UserPhotoUploader
+
 end
