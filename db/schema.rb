@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160222163741) do
+ActiveRecord::Schema.define(version: 20160305151827) do
 
   create_table "collaborations", force: :cascade do |t|
     t.integer  "list_id"
@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(version: 20160222163741) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "username"
+    t.string   "user_photo"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
