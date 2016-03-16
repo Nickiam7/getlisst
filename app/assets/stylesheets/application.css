@@ -20,19 +20,12 @@
     z-index: 998;
 }
 
-.ui-menu-item {
-  border-bottom: 1px solid #eee;
-  border-radius: 0.285714rem;
-}
-
 .ui-menu-item:first-child {
   border-radius: 0.285714rem 0.285714rem 0 0;
-  border-bottom: 1px solid #eee;
 }
 
 .ui-menu-item:last-child {
   border-radius: 0 0 0.285714rem 0.285714rem;
-  border-bottom: 1px solid #eee;
 }
 
 .ui-state-hover,
