@@ -5,6 +5,14 @@
  *= require_self
  */
 
+ @font-face {
+    font-family: 'FontAwesome';
+    src: url("/assets/fontawesome-webfont.woff2") format('woff2'), url("/assets/fontawesome-webfont.woff") format("woff"), url("/assets/fontawesome-webfont.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*** autocomplete ***/
 .ui-autocomplete {
     background: #fff none repeat scroll 0 0;
     border: 1px solid #d4d4d5;
@@ -21,11 +29,11 @@
 }
 
 .ui-menu-item:first-child {
-  border-radius: 0.285714rem 0.285714rem 0 0;
+    border-radius: 0.285714rem 0.285714rem 0 0;
 }
 
 .ui-menu-item:last-child {
-  border-radius: 0 0 0.285714rem 0.285714rem;
+    border-radius: 0 0 0.285714rem 0.285714rem;
 }
 
 .ui-state-hover,
@@ -39,4 +47,112 @@
     background: #f9fafb;
     background-image: none;
     border: 1px solid #d4d4d5;
+}
+/*** end autocomplete ***/
+
+/***************/
+/*****list******/
+/***************/
+
+/*** sidebar ***/
+
+
+.sidebar-bottom {
+    background: #f3f1f8;
+    border-top: 1px solid #d6ddec;
+    border-left: 1px solid #d6ddec;
+    padding: 10px 5px;
+    text-align: center;
+}
+
+.sidebar-bottom a {
+    color: #919eba;
+}
+
+.sidebar-bottom a:hover {
+    color: #aeb8d0;
+    text-decoration: none;
+}
+
+.add-new-list {
+    text-align: center;
+    margin: 10px 0 40px;
+}
+
+.button {
+    background-color: #2acc7d;
+    background-image: linear-gradient(to bottom, #2acc7d, #2acc7d);
+    border-color: rgba(42, 204, 125, 0.2);
+    color: #fff;
+    text-shadow: none;
+    border-radius: 0.125rem;
+}
+
+.close-sidebar-button {
+    background-color: #2acc7d;
+    background: #faf9fe linear-gradient(to bottom, #ffffff, #f3f1f8) repeat scroll 0 0 border-box;
+    border-color: rgba(145, 158, 186, 0.3);
+    color: rgba(145, 158, 186, 0.3);
+    text-shadow: none;
+    border-radius: 0.125rem;
+}
+
+.close-sidebar-button:hover {
+    background-color: #2acc7d;
+    background: #faf9fe linear-gradient(to bottom, #ffffff, #f3f1f8) repeat scroll 0 0 border-box;
+    border-color: rgba(145, 158, 186, 0.5);
+    color: rgba(145, 158, 186, 0.5);
+    text-shadow: none;
+    border-radius: 0.125rem;
+}
+
+.button:hover {
+    background-color: #3ee493;
+    background-image: linear-gradient(to bottom, #3ee493, #3ee493);
+    border-color: rgba(42, 204, 125, 0.2);
+    color: #fff;
+    text-shadow: none;
+}
+
+/*** end sidebar ***/
+
+/*** NavBar ***/
+.uk-navbar {
+    /*background: #ffffff;*/
+    background: #faf9fe;
+    border-width: 0;
+    border-color:  rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.navbar-rest {
+    border-bottom: 1px solid #dedaed;
+}
+
+.uk-navbar-content, .uk-navbar-brand, .uk-navbar-toggle {
+    height: 63px;
+}
+
+.uk-navbar-nav > li > a {
+    height: 65px;
+    padding: 7px 15px;
+    color: #919eba;
+}
+
+.uk-navbar-brand {
+    background: #1dceac linear-gradient(to bottom, #31e5c2, #1dceac) repeat scroll 0 0 border-box;
+    width: 200px;
+    color: #fff;
+    text-shadow: none;
+    text-align: center;
+    border-right: 1px solid #06a486;
+    border-bottom: 1px solid #06a486;
+    height: 64px;
+}
+
+/*** utility ***/
+.xl-margin-large-top {
+    margin-top: 100px;
 }

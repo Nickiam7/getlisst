@@ -1,0 +1,36 @@
+<nav class="uk-navbar uk-navbar-attached">
+  <a href="#" class="uk-navbar-brand uk-heading-large">L</a>
+  <div class="navbar-rest">
+    <div class="uk-navbar-content">
+      What Up BIAAAATCH!?!?!?
+    </div>
+    <div class="uk-navbar-content uk-navbar-flip  uk-hidden-small">
+      <ul class="uk-navbar-nav">
+        <li data-uk-dropdown="" class="uk-parent" aria-haspopup="true" aria-expanded="false">
+          <a href=""><%= image_tag(@user.user_photo.thumb.url, class: "uk-border-circle") %> <%= @user.username %></a>
+          <div class="uk-dropdown uk-dropdown-navbar uk-dropdown-bottom" style="top: 40px; left: 0px;">
+            <ul class="uk-nav uk-nav-navbar">
+              <li class="uk-nav-header">Lists</li>
+              <li><%= link_to "Your lists", user_path(current_user) %></li>
+              <li><%= link_to "Add list", new_list_path %></li>
+              <li class="uk-nav-header">Help</li>
+              <li><%= link_to "Knowledge base", "#" %></li>
+              <li><%= link_to "Report bugs", "#" %></li>
+              <li class="uk-nav-divider"></li>
+              <li><%= link_to "Settings", edit_user_registration_path %></li>
+              <li><%= link_to "Sing out", destroy_user_session_path, method: :delete %></li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="uk-navbar-content uk-navbar-center uk-hidden-small uk-text-right">
+      <form class="uk-form uk-margin-remove uk-display-inline-block">
+        <div class="uk-form-icon">
+          <i class="uk-icon-search"></i>
+          <input type="text" class="uk-form-large uk-form-width-large" placeholder="Search">
+        </div>
+      </form>
+    </div>
+  </div>
+</nav>
