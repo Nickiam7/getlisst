@@ -1,19 +1,27 @@
-<div>
-  <%= image_tag(@user.user_photo.thumb.url) %>
-</div>
+<%= render partial: 'shared/main_nav' %>
+<section>
+  <h1 style="margin-bottom:0;"><%= @user.username %></h1>
+  <small><%= link_to "Create a New List", new_list_path, class: "uk-button uk-button-mini", data: {uk_tooltip: ""}, title: "Create a new list" %></small>
 
+  <h2>Your lists</h2>
+  <% @lists.each do |list| %>
+    <p><%= link_to list.title, list_path(list) %> | <%= link_to "Delete", list_path(list), method: :delete %> </p>
+  <% end %>
 
-<h1 style="margin-bottom:0;"><%= @user.username %></h1>
-<small><%= link_to "Create a New List", new_list_path, class: "uk-button uk-button-mini uk-button-success", data: {uk_tooltip: ""}, title: "Create a new list" %></small>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tristique vulputate iaculis. Quisque in pharetra lorem. Suspendisse ac nisi auctor, venenatis ligula sed, scelerisque velit.</p>
+  <p>Donec laoreet ante eget erat egestas bibendum. Aenean sed mattis arcu, eget imperdiet justo. Mauris pharetra massa vel fringilla porttitor. Vivamus elementum nulla a posuere placerat. Donec porttitor tempus velit in sodales. </p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tristique vulputate iaculis. Quisque in pharetra lorem. Suspendisse ac nisi auctor, venenatis ligula sed, scelerisque velit.</p>
+  <p>Donec laoreet ante eget erat egestas bibendum. Aenean sed mattis arcu, eget imperdiet justo. Mauris pharetra massa vel fringilla porttitor. Vivamus elementum nulla a posuere placerat. Donec porttitor tempus velit in sodales. </p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tristique vulputate iaculis. Quisque in pharetra lorem. Suspendisse ac nisi auctor, venenatis ligula sed, scelerisque velit.</p>
+  <p>Donec laoreet ante eget erat egestas bibendum. Aenean sed mattis arcu, eget imperdiet justo. Mauris pharetra massa vel fringilla porttitor. Vivamus elementum nulla a posuere placerat. Donec porttitor tempus velit in sodales. </p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tristique vulputate iaculis. Quisque in pharetra lorem. Suspendisse ac nisi auctor, venenatis ligula sed, scelerisque velit.</p>
+  <p>Donec laoreet ante eget erat egestas bibendum. Aenean sed mattis arcu, eget imperdiet justo. Mauris pharetra massa vel fringilla porttitor. Vivamus elementum nulla a posuere placerat. Donec porttitor tempus velit in sodales. </p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tristique vulputate iaculis. Quisque in pharetra lorem. Suspendisse ac nisi auctor, venenatis ligula sed, scelerisque velit.</p>
+  <p>Donec laoreet ante eget erat egestas bibendum. Aenean sed mattis arcu, eget imperdiet justo. Mauris pharetra massa vel fringilla porttitor. Vivamus elementum nulla a posuere placerat. Donec porttitor tempus velit in sodales. </p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tristique vulputate iaculis. Quisque in pharetra lorem. Suspendisse ac nisi auctor, venenatis ligula sed, scelerisque velit.</p>
+  <p>Donec laoreet ante eget erat egestas bibendum. Aenean sed mattis arcu, eget imperdiet justo. Mauris pharetra massa vel fringilla porttitor. Vivamus elementum nulla a posuere placerat. Donec porttitor tempus velit in sodales. </p>
 
-<h2>Your lists</h2>
-<% @lists.each do |list| %>
-  <p><%= link_to list.title, list_path(list) %></p>
-<% end %>
-
-<h2>Collaboration lists</h2>
-<% @collab_lists.each do |collab_list| %>
-  <p><%= link_to collab_list.list.title, list_path(collab_list.list_id) %> | Owner: <%= collab_list.list.user.username %>
-  </p>
-<% end %>
-
+  <h2>Collaboration lists</h2>
+  <% @collab_lists.each do |collab_list| %>
+    <p><%= link_to collab_list.list.title, list_path(collab_list.list_id) %> | Owner: <%= collab_list.list.user.username %>
+    </p>
+  <% end %>
+</section>

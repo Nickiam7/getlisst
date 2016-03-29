@@ -17,6 +17,6 @@
 //= require cocoon
 //= require uikit
 //= require uikit/components/tooltip
-//= require turbolinks
+//= require uikit/components/sticky
 //= require compatibility
 //= require_tree .

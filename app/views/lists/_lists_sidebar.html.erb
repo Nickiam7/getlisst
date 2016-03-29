@@ -1,0 +1,34 @@
+<section id="sidebar">
+  <div id="logo">
+  <%= link_to user_path(current_user) do %>
+    <h1 class="uk-heading-large uk-text-contrast">L</h1>
+  <% end %>
+  </div>
+  <div class="uk-container uk-container-center">
+    <div id="user-info">
+      <%= link_to user_path(current_user) do %>
+        <%= image_tag(@user.user_photo.profile.url, class: "uk-thumbnail uk-border-circle") %>
+      <% end %>
+      <small class="uk-text-muted"><%= @user.username %> &bull; <%= pluralize(@user.lists.count, "List") %></small>
+    </div>
+  </div>
+  <div class="uk-position-bottom">
+    <div class="add-new-list">
+      <%= link_to new_list_path, class: "uk-button uk-button-large button uk-width-5-6" do %>
+        <i class="uk-icon-plus"></i> New List
+      <% end %>
+    </div>
+    <div class="uk-grid uk-grid-collapse">
+      <div class="uk-width-1-2 sidebar-bottom">
+        <%= link_to edit_user_registration_path do %>
+          <i class="uk-icon-cog"></i> Settings
+        <% end %>
+      </div>
+      <div class="uk-width-1-2 sidebar-bottom">
+        <%= link_to destroy_user_session_path, method: :delete do %>
+           <i class="uk-icon-sign-out"></i> Sign out
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>

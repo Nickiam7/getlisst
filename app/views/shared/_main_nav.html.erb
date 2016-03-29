@@ -1,0 +1,60 @@
+<nav class="uk-navbar uk-navbar-attached">
+  <a href="#" class="uk-navbar-brand extend-brand uk-heading-large">L</a>
+  <div class="uk-navbar-content">
+    <form class="uk-form navbar-search-margin uk-display-inline-block">
+      <div class="uk-form-icon">
+        <i class="uk-icon-search"></i>
+        <input type="text" class="uk-form-large" placeholder="Search your lists">
+      </div>
+    </form>
+  </div>
+  <div class="uk-navbar-flip user-photo-padding uk-hidden-medium">
+    <div class="uk-navbar-content navbar-actions">
+      <ul class="uk-navbar-nav">
+        <li data-uk-dropdown="{mode: 'click', pos:'bottom-center'}" class="uk-parent uk-button uk-button-large button" aria-haspopup="true" aria-expanded="false"><i class="uk-icon-plus"></i> New list</a>
+          <div class="uk-dropdown extend-new-list-dropdown uk-dropdown-width-3 uk-dropdown-navbar uk-dropdown-bottom new-arrow uk-text-left">
+            <div class="uk-grid uk-dropdown-grid">
+              <div class="uk-width-2-3">
+                <h3>Create a new list</h3>
+                <%= form_for @list, html: {class: 'uk-form'} do |f| %>
+                  <div class="uk-form-row">
+                    <%= f.text_field :title, placeholder: "Title", class: "uk-form-large uk-width-1-1" %>
+                  </div>
+                  <div class="uk-form-row">
+                    <%= f.text_area :description, placeholder: "Description", class: "uk-width-1-1 line-height-new-list", rows: "5", style: 'line-height: 1.5em;' %>
+                  </div>
+                  <div class="uk-form-row">
+                    <%= f.submit class: "uk-button uk-button-small uk-width-1-1" %>
+                  </div>
+                <% end %>
+              </div>
+            <div class="uk-width-1-3">
+              hi :D
+            </div>
+          </div>
+        </div>
+        </li>
+        <li class="uk-button uk-button-large lists-overview-button">
+          <%= link_to user_path(current_user) do %>
+            <i class="uk-icon-list-ul"></i> My lists</li>
+          <% end %>
+        </li>
+    </div>
+    <ul class="uk-navbar-nav">
+      <li data-uk-dropdown="" class="uk-parent" aria-haspopup="true" aria-expanded="false">
+        <a href="#"><%= image_tag(@user.user_photo.thumb.url, class: 'uk-border-circle cursor-pointer') %></a>
+        <div class="uk-dropdown uk-dropdown-navbar extend-dropdown arrow uk-dropdown-bottom">
+          <p>Signed-in as <strong><%= @user.username %></strong></p>
+          <ul class="uk-nav uk-nav-navbar">
+            <li class="uk-nav-header">Support</li>
+            <li><%= link_to "Knowledge base", "#" %></li>
+            <li><%= link_to "Report bugs", "#" %></li>
+            <li class="uk-nav-divider"></li>
+            <li><%= link_to "Settings", edit_user_registration_path %></li>
+            <li><%= link_to "Sing out", destroy_user_session_path, method: :delete %></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
