@@ -12,6 +12,10 @@
     font-style: normal;
 }
 
+body {
+    background: #fcfbff;
+}
+
 /*** autocomplete ***/
 .ui-autocomplete {
     background: #fff none repeat scroll 0 0;
@@ -54,31 +58,6 @@
 /*****list******/
 /***************/
 
-/*** sidebar ***/
-
-
-.sidebar-bottom {
-    background: #f3f1f8;
-    border-top: 1px solid #d6ddec;
-    border-left: 1px solid #d6ddec;
-    padding: 10px 5px;
-    text-align: center;
-}
-
-.sidebar-bottom a {
-    color: #919eba;
-}
-
-.sidebar-bottom a:hover {
-    color: #aeb8d0;
-    text-decoration: none;
-}
-
-.add-new-list {
-    text-align: center;
-    margin: 10px 0 40px;
-}
-
 .button {
     background-color: #2acc7d;
     background-image: linear-gradient(to bottom, #2acc7d, #2acc7d);
@@ -86,24 +65,7 @@
     color: #fff;
     text-shadow: none;
     border-radius: 0.125rem;
-}
-
-.close-sidebar-button {
-    background-color: #2acc7d;
-    background: #faf9fe linear-gradient(to bottom, #ffffff, #f3f1f8) repeat scroll 0 0 border-box;
-    border-color: rgba(145, 158, 186, 0.3);
-    color: rgba(145, 158, 186, 0.3);
-    text-shadow: none;
-    border-radius: 0.125rem;
-}
-
-.close-sidebar-button:hover {
-    background-color: #2acc7d;
-    background: #faf9fe linear-gradient(to bottom, #ffffff, #f3f1f8) repeat scroll 0 0 border-box;
-    border-color: rgba(145, 158, 186, 0.5);
-    color: rgba(145, 158, 186, 0.5);
-    text-shadow: none;
-    border-radius: 0.125rem;
+    margin-right: 15px;
 }
 
 .button:hover {
@@ -114,45 +76,180 @@
     text-shadow: none;
 }
 
-/*** end sidebar ***/
+.lists-overview-button {
+    background-color: #2acc7d;
+    background: #faf9fe linear-gradient(to bottom, #ffffff, #f3f1f8) repeat scroll 0 0 border-box;
+    border-color: #dedaed;
+    color: #919eba;
+    text-shadow: none;
+    border-radius: 0.125rem;
+    margin-right: 25px;
+}
 
-/*** NavBar ***/
+.lists-overview-button:hover {
+    background-color: #2acc7d;
+    background: #faf9fe linear-gradient(to bottom, #ffffff, #f3f1f8) repeat scroll 0 0 border-box;
+    border-color: rgba(145, 158, 186, 0.5);
+    color: #919eba;
+    text-shadow: none;
+    border-radius: 0.125rem;
+}
+
+/*** navbar ***/
+
 .uk-navbar {
-    /*background: #ffffff;*/
-    background: #faf9fe;
-    border-width: 0;
-    border-color:  rgba(0, 0, 0, 0.1);
-    position: fixed;
-    top: 0;
-    width: 100%;
-}
-
-.navbar-rest {
-    border-bottom: 1px solid #dedaed;
-}
-
-.uk-navbar-content, .uk-navbar-brand, .uk-navbar-toggle {
-    height: 63px;
-}
-
-.uk-navbar-nav > li > a {
+    background: #fff;
+    border-top-width: 0;
+    border-left-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 1;
+    border-color: #d2d9e8;
     height: 65px;
-    padding: 7px 15px;
+}
+
+.nav-bottom-border {
+    background: #eee;
+}
+
+.extend-brand {
+    background: #31e5c2 linear-gradient(to bottom, #31e5c2, #1dceac) repeat scroll 0 0 border-box;
+    border-right: 1px solid #06a486;
+    border-bottom: 1px solid #06a486;
+    height: 67px;
+    padding: 0 55px;
+    color: #fff;
+}
+
+/**navbar dropdown**/
+
+.uk-dropdown {
+    border: 1px solid #d2d9e8;
+    border-radius: 0 0 2px 2px;
+}
+
+.uk-dropdown-navbar.extend-dropdown {
+    margin-top: 16px;
     color: #919eba;
 }
 
-.uk-navbar-brand {
-    background: #1dceac linear-gradient(to bottom, #31e5c2, #1dceac) repeat scroll 0 0 border-box;
-    width: 200px;
-    color: #fff;
-    text-shadow: none;
-    text-align: center;
-    border-right: 1px solid #06a486;
-    border-bottom: 1px solid #06a486;
-    height: 64px;
+.uk-dropdown-navbar.extend-new-list-dropdown {
+    margin-top: 10px;
 }
+
+.uk-dropdown-navbar.arrow:after {
+    background: #ffffff;
+    border-radius: 1px;
+    content: "";
+    display: block;
+    height: 8px;
+    right: 35px;
+    position: absolute;
+    top: -5px;
+    transform: rotate(45deg);
+    width: 8px;
+    border-top:1px solid #d2d9e8;
+    border-left:1px solid #d2d9e8;
+    z-index: -1
+}
+
+.uk-dropdown-navbar.new-arrow:after {
+    background: #ffffff;
+    border-radius: 1px;
+    content: "";
+    display: block;
+    height: 8px;
+    right: 295px;
+    position: absolute;
+    top: -5px;
+    transform: rotate(45deg);
+    width: 8px;
+    border-top:1px solid #d2d9e8;
+    border-left:1px solid #d2d9e8;
+    z-index: -1
+}
+
+.uk-navbar-nav > li > a:hover, .uk-navbar-nav > li > a:focus, .uk-navbar-nav > li > a:active {
+    background-color: transparent;
+    border-left-color: rgba(0, 0, 0, 0.0);
+    border-right-color: rgba(0, 0, 0, 0.0);
+    border-top-color: rgba(0, 0, 0, 0.0);
+    box-shadow: none;
+}
+
+.uk-navbar-nav > li.uk-open > a {
+    background-color: transparent;
+    border-left-color: rgba(0, 0, 0, 0.0);
+    border-right-color: rgba(0, 0, 0, 0.0);
+    border-top-color: rgba(0, 0, 0, 0.0);
+    box-shadow: none;
+}
+
+.uk-nav-navbar > li > a {
+    color: #919eba;
+}
+
+.uk-navbar-nav > li > a {
+    background-color: transparent;
+    border-left-color: rgba(0, 0, 0, 0.0);
+    border-right-color: rgba(0, 0, 0, 0.0);
+    border-top-color: rgba(0, 0, 0, 0.0);
+    box-shadow: none;
+    color: #919eba;
+}
+
+.uk-navbar-nav > li:hover > a, .uk-navbar-nav > li > a:focus, .uk-navbar-nav > li.uk-open > a {
+    background-color: transparent;
+    border-left-color: rgba(0, 0, 0, 0.0);
+    border-right-color: rgba(0, 0, 0, 0.0);
+    border-top-color: rgba(0, 0, 0, 0.0);
+    box-shadow: none;
+    color: #919eba;
+}
+
+
+.uk-navbar-nav > li > a:hover, .uk-navbar-nav > li > a:focus, .uk-navbar-nav > li > a:active {
+    background-color: transparent;
+    border-left-color: rgba(0, 0, 0, 0.0);
+    border-right-color: rgba(0, 0, 0, 0.0);
+    border-top-color: rgba(0, 0, 0, 0.0);
+    box-shadow: none;
+    color: #919eba;
+}
+
+.uk-nav-navbar > li > a:hover, .uk-nav-navbar > li > a:focus {
+    background: #1dceac;
+    box-shadow: none;
+}
+/** end navbar **/
+
+/** forms **/
+
+/** end forms **/
 
 /*** utility ***/
 .xl-margin-large-top {
     margin-top: 100px;
+}
+
+.uk-navbar-flip.user-photo-padding {
+    padding: 9px 58px 10px 0;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.navbar-search-margin {
+    margin-top: 15px;
+    margin-left: 50px;
+}
+
+.navbar-search-margin {
+    margin-top: 15px;
+    margin-left: 50px;
+}
+
+.navbar-actions {
+    margin-top: 5px;
+    margin-right: 50px;
 }

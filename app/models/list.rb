@@ -4,4 +4,6 @@ class List < ActiveRecord::Base
   has_many :items, dependent: :destroy
   has_many :collaborations, dependent: :destroy
   has_many :collaborators, through: :collaborations, source: :user
+
+  validates :title, presence: true
 end

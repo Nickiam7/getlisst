@@ -11,7 +11,8 @@ class ListsController < ApplicationController
       flash[:notice] = "\"#{@list.title}\" has been created"
       redirect_to list_path(@list)
     else
-      flash[:notice] = "Sorry, something went wrong"
+      flash[:alert] = "Sorry, something went wrong"
+      render :new
     end
   end
 
@@ -21,6 +22,16 @@ class ListsController < ApplicationController
     @collaboration = Collaboration.new
     @items = @list.items.all
     authorize @list
+  end
+
+  def destroy
+    @list = List.find(params[:id])
+    if @list.delete
+      flash[:notice] = "Your list has been deleted"
+    else
+      flash[:notice] = "Something went wrong"
+    end
+      redirect_to user_path(current_user)
   end
 
   private
