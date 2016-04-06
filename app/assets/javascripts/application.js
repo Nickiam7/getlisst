@@ -18,5 +18,7 @@
 //= require uikit
 //= require uikit/components/tooltip
 //= require uikit/components/sticky
+//= require uikit/components/form-select
+//= require uikit/components/datepicker
 //= require compatibility
 //= require_tree .
