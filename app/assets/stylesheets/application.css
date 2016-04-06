@@ -1,6 +1,8 @@
 /*
  *= require uikit.gradient
  *= require uikit/components/tooltip
+ *= require uikit/components/form-select
+ *= require uikit/components/datepicker
  *= require jquery-ui/autocomplete
  *= require_self
  */
@@ -14,6 +16,10 @@
 
 body {
     background: #fcfbff;
+}
+
+.category-dropdown select {
+    background: #000000;
 }
 
 /*** autocomplete ***/
@@ -127,13 +133,27 @@ body {
     border-radius: 0 0 2px 2px;
 }
 
+.uk-dropdown.dropdown-actions {
+    border: 1px solid #d2d9e8;
+    border-radius: 2px;
+}
+
+.uk-nav-dropdown > li > a {
+    color: #919eba;
+}
+
+.uk-nav-dropdown > li > a:hover, .uk-nav-dropdown > li > a:focus {
+    background: #1dceac;
+    box-shadow: none;
+}
+
 .uk-dropdown-navbar.extend-dropdown {
-    margin-top: 16px;
+    margin-top: 17px;
     color: #919eba;
 }
 
 .uk-dropdown-navbar.extend-new-list-dropdown {
-    margin-top: 10px;
+    margin-top: 11px;
 }
 
 .uk-dropdown-navbar.arrow:after {
@@ -252,4 +272,62 @@ body {
 .navbar-actions {
     margin-top: 5px;
     margin-right: 50px;
+}
+
+.uk-dropdown-grid h3 {
+    color: #919eba;
+}
+
+.lisst {
+    border: 1px solid #d2d9e8;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.03);
+    border-radius: 2px;
+}
+
+.lisst h3 a {
+    color: #444444;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.lisst p {
+    color: #999999;
+    font-size: 12px;
+    line-height: 14px;
+}
+
+.border-radius-2 {
+    border-radius: 2px;
+}
+
+.lisst-stats {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.lisst-stats strong {
+    font-size: 30px;
+    line-height: 30px;
+}
+
+.lisst-stats .lisst-items strong {
+    color: #919eba;
+}
+
+.lisst-stats .complete strong {
+    color: #1dceac;
+}
+
+.lisst-stats .incomplete strong {
+    color: #d85030;
+}
+
+.lisst-stats small {
+    font-size: 11px;
+    line-height: 16px;
+    display: block;
+}
+
+.lisst-description {
+    min-height: 27px;
 }

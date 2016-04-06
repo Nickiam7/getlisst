@@ -1,27 +1,77 @@
 <%= render partial: 'shared/main_nav' %>
-<section>
-  <h1 style="margin-bottom:0;"><%= @user.username %></h1>
-  <small><%= link_to "Create a New List", new_list_path, class: "uk-button uk-button-mini", data: {uk_tooltip: ""}, title: "Create a new list" %></small>
-
-  <h2>Your lists</h2>
-  <% @lists.each do |list| %>
-    <p><%= link_to list.title, list_path(list) %> | <%= link_to "Delete", list_path(list), method: :delete %> </p>
-  <% end %>
-
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tristique vulputate iaculis. Quisque in pharetra lorem. Suspendisse ac nisi auctor, venenatis ligula sed, scelerisque velit.</p>
-  <p>Donec laoreet ante eget erat egestas bibendum. Aenean sed mattis arcu, eget imperdiet justo. Mauris pharetra massa vel fringilla porttitor. Vivamus elementum nulla a posuere placerat. Donec porttitor tempus velit in sodales. </p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tristique vulputate iaculis. Quisque in pharetra lorem. Suspendisse ac nisi auctor, venenatis ligula sed, scelerisque velit.</p>
-  <p>Donec laoreet ante eget erat egestas bibendum. Aenean sed mattis arcu, eget imperdiet justo. Mauris pharetra massa vel fringilla porttitor. Vivamus elementum nulla a posuere placerat. Donec porttitor tempus velit in sodales. </p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tristique vulputate iaculis. Quisque in pharetra lorem. Suspendisse ac nisi auctor, venenatis ligula sed, scelerisque velit.</p>
-  <p>Donec laoreet ante eget erat egestas bibendum. Aenean sed mattis arcu, eget imperdiet justo. Mauris pharetra massa vel fringilla porttitor. Vivamus elementum nulla a posuere placerat. Donec porttitor tempus velit in sodales. </p>
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tristique vulputate iaculis. Quisque in pharetra lorem. Suspendisse ac nisi auctor, venenatis ligula sed, scelerisque velit.</p>
-  <p>Donec laoreet ante eget erat egestas bibendum. Aenean sed mattis arcu, eget imperdiet justo. Mauris pharetra massa vel fringilla porttitor. Vivamus elementum nulla a posuere placerat. Donec porttitor tempus velit in sodales. </p>
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tristique vulputate iaculis. Quisque in pharetra lorem. Suspendisse ac nisi auctor, venenatis ligula sed, scelerisque velit.</p>
-  <p>Donec laoreet ante eget erat egestas bibendum. Aenean sed mattis arcu, eget imperdiet justo. Mauris pharetra massa vel fringilla porttitor. Vivamus elementum nulla a posuere placerat. Donec porttitor tempus velit in sodales. </p>
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus tristique vulputate iaculis. Quisque in pharetra lorem. Suspendisse ac nisi auctor, venenatis ligula sed, scelerisque velit.</p>
-  <p>Donec laoreet ante eget erat egestas bibendum. Aenean sed mattis arcu, eget imperdiet justo. Mauris pharetra massa vel fringilla porttitor. Vivamus elementum nulla a posuere placerat. Donec porttitor tempus velit in sodales. </p>
-
-  <h2>Collaboration lists</h2>
-  <% @collab_lists.each do |collab_list| %>
-    <p><%= link_to collab_list.list.title, list_path(collab_list.list_id) %> | Owner: <%= collab_list.list.user.username %>
-    </p>
-  <% end %>
-</section>
+<div class="uk-grid">
+  <section class="uk-width-medium-3-4 uk-margin-large-top">
+    <div class="uk-container">
+      <div class="uk-grid uk-grid-small uk-grid-match" data-uk-grid-match="{target:'.uk-panel'}">
+        <% @lists.each do |list| %>
+          <article class="uk-width-medium-1-3 uk-margin-bottom">
+            <div class="uk-panel uk-panel-box uk-panel-box-secondary lisst">
+              <div class="uk-panel-badge">
+                <div data-uk-dropdown="{mode: 'click', pos: 'left-top'}" class="cursor-pointer">
+                  <i class="uk-icon-cogs uk-text-muted"></i>
+                  <div class="uk-dropdown dropdown-actions uk-dropdown-small uk-dropdown-bottom">
+                    <ul class="uk-nav uk-nav-dropdown">
+                      <li><%= link_to "View list", list_path(list) %></li>
+                      <li><%= link_to "Edit list", edit_list_path(list) %></li>
+                      <li class="uk-nav-divider"></li>
+                      <li><%= link_to "Delete List", list_path(list), method: :delete %></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <h3 class="uk-panel-title">
+                <%= link_to list.title, list_path(list) %>
+                <small class="uk-display-block uk-text-small">Created: <%= list.created_at.strftime("%x") %> &bull; Recipe</small>
+              </h3>
+              <div class="lisst-description">
+                <% if list.description.present? %>
+                  <p><%= truncate(list.description, length: 100) %> <%= link_to "More", list_path(list) %></p>
+                <% else %>
+                   <p>No description.
+                      <%= link_to edit_list_path(list) do %>
+                        <i class="uk-icon-plus"></i> Add description
+                      <% end %>
+                   </p>
+                <% end %>
+              </div>
+              <div class="lisst-stats">
+                <div class="uk-grid">
+                  <div class="uk-width-1-3 lisst-items">
+                    <strong><%= list.items.count %></strong>
+                    <small><%= "item".pluralize(list.items.count) %></small>
+                  </div>
+                  <div class="uk-width-1-3 complete">
+                    <strong><%= list.items.count %></strong>
+                    <small >Complete</small>
+                  </div>
+                  <div class="uk-width-1-3 incomplete">
+                    <strong><%= list.items.count %></strong>
+                    <small >incomplete</small>
+                  </div>
+                </div>
+              </div>
+              <% if list.collaborations.any? %>
+              <p class="uk-display-inline">Team:</p>
+                <% list.collaborations.each do |collaboration| %>
+                  <%= image_tag(collaboration.user.user_photo.autocomplete.url, class: "uk-border-circle", data: {uk_tooltip: "animation: true"}, title: "#{collaboration.user.username}") %>
+                <% end %>
+              <% else %>
+                <p>No team members</p>
+              <% end %>
+            </div>
+          </article>
+        <% end %>
+      </div>
+    </div>
+  </section>
+  <section class="uk-width-medium-1-4">
+    <div class="uk-container">
+      <h2>Lissts</h2>
+      <% @collab_lists.each do |collab_list| %>
+        <p>
+          <%= link_to collab_list.list.title, list_path(collab_list.list_id) %> | Owner: <%= collab_list.list.user.username %>
+        </p>
+      <% end %>
+    </div>
+  </section>
+</div>

@@ -28,6 +28,17 @@ class ItemsController < ApplicationController
     redirect_to list_item_path(@list, @item)
   end
 
+  def destroy
+    @list = List.find(params[:list_id])
+    @item = @list.items.find(params[:id])
+    if @item.delete
+      flash[:notice] = "Item has been deleted"
+    else
+      flash[:notice] = "Item has been deleted"
+    end
+      redirect_to list_path(@list)
+  end
+
   private
   def item_params
     params.require(:item).permit(:title, :description, subtasks_attributes: [:id, :name, :description, :_destroy])
