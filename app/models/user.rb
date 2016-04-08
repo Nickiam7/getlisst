@@ -5,9 +5,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :lists, dependent: :destroy
-  has_many :items, through: :lists, dependent: :destroy
-  has_many :collaborations
-  has_many :collaborated_lists, through: :collaborations, source: :lists
+  has_many :items, through: :lists
+  has_many :collaborations, dependent: :destroy
+  has_many :collaborated_lists, through: :collaborations, source: :lists, dependent: :destroy
 
   mount_uploader :user_photo, UserPhotoUploader
 
