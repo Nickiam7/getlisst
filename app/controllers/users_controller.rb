@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @lists = @user.lists
-    @collab_lists = @user.collaborations
+    @collab_lists = @user.collaborated_lists
     @list = current_user.lists.new
     authorize @user
   end

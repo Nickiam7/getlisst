@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   has_many :lists, dependent: :destroy
   has_many :items, through: :lists
   has_many :collaborations, dependent: :destroy
-  has_many :collaborated_lists, through: :collaborations, source: :lists, dependent: :destroy
+  has_many :collaborated_lists, through: :collaborations, source: :list, dependent: :destroy
 
   mount_uploader :user_photo, UserPhotoUploader
 

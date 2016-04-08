@@ -69,7 +69,7 @@
       <h2>Lissts</h2>
       <% @collab_lists.each do |collab_list| %>
         <p>
-          <%= link_to collab_list.list.title, list_path(collab_list.list_id) %> | Owner: <%= collab_list.list.user.username %>
+          <%= link_to collab_list.title, list_path(collab_list) %> | Owner: <%= collab_list.user.username %>
         </p>
       <% end %>
     </div>
