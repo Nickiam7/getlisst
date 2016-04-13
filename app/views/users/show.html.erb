@@ -7,7 +7,7 @@
           <article class="uk-width-medium-1-3 uk-margin-bottom">
             <div class="uk-panel uk-panel-box uk-panel-box-secondary lisst">
               <div class="uk-panel-badge">
-                <div data-uk-dropdown="{mode: 'click', pos: 'left-top'}" class="cursor-pointer">
+                <div data-uk-dropdown="{mode: 'click', pos: 'left-top'}" class="cursor-pointer uk-margin-small-top">
                   <i class="uk-icon-cogs uk-text-muted"></i>
                   <div class="uk-dropdown dropdown-actions uk-dropdown-small uk-dropdown-bottom">
                     <ul class="uk-nav uk-nav-dropdown">
@@ -20,7 +20,7 @@
                 </div>
               </div>
               <h3 class="uk-panel-title">
-                <%= link_to list.title, list_path(list) %>
+                <%= link_to list.title, list_path(list) %> <i class="uk-icon-<%= list.list_completed? %> uk-text-small <%= list.list_completed_color %>"></i>
                 <small class="uk-display-block uk-text-small">Created: <%= list.created_at.strftime("%x") %> &bull; Recipe</small>
               </h3>
               <div class="lisst-description">
@@ -35,18 +35,28 @@
                 <% end %>
               </div>
               <div class="lisst-stats">
-                <div class="uk-grid">
+                <div class="uk-grid uk-grid-divider uk-grid-small uk-margin-small-bottom">
                   <div class="uk-width-1-3 lisst-items">
                     <strong><%= list.items.count %></strong>
                     <small><%= "item".pluralize(list.items.count) %></small>
                   </div>
                   <div class="uk-width-1-3 complete">
-                    <strong><%= list.items.count %></strong>
-                    <small >Complete</small>
+                    <strong><%= list.items.complete.count %></strong>
+                    <small>Complete</small>
                   </div>
                   <div class="uk-width-1-3 incomplete">
-                    <strong><%= list.items.count %></strong>
+                    <strong><%= list.items.incomplete.count %></strong>
                     <small >incomplete</small>
+                  </div>
+                </div>
+                <div class="uk-grid uk-grid-small uk-margin-top-remove">
+                  <div class="uk-width-5-6">
+                    <div class="uk-progress uk-progress-mini uk-margin-top">
+                      <div class="uk-progress-bar" style="width: <%= list.list_percentage_complete %>%"></div>
+                    </div>
+                  </div>
+                  <div class="uk-width-1-6" style="margin-top: 10px;">
+                    <p><%= list.list_percentage_complete %>%</p>
                   </div>
                 </div>
               </div>

@@ -3,6 +3,7 @@
  *= require uikit/components/tooltip
  *= require uikit/components/form-select
  *= require uikit/components/datepicker
+ *= require uikit/components/progress
  *= require jquery-ui/autocomplete
  *= require_self
  */
@@ -330,4 +331,8 @@ body {
 
 .lisst-description {
     min-height: 27px;
+}
+
+.completed_list_item_color {
+    color: #1dceac;
 }
