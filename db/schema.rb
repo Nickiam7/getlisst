@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160305151827) do
+ActiveRecord::Schema.define(version: 20160408211450) do
 
   create_table "collaborations", force: :cascade do |t|
     t.integer  "list_id"
@@ -27,8 +27,9 @@ ActiveRecord::Schema.define(version: 20160305151827) do
     t.string   "title"
     t.text     "description"
     t.integer  "list_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.boolean  "item_status", default: false
   end
 
   add_index "items", ["list_id"], name: "index_items_on_list_id"
