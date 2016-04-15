@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
   resources :lists, except: :index do
-    resources :items
+    resources :items do
+      patch '/complete' => "items#complete", as: :complete
+    end
     resources :collaborations, only: [:create, :destroy]
   end
 
