@@ -286,9 +286,15 @@ body {
 }
 
 .lisst h3 a {
-    color: #444444;
+    color: #717e9a;
     font-size: 15px;
     font-weight: 600;
+}
+
+.lisst h3 small {
+    color: #919eba;
+    line-height: 5px;
+    opacity: 0.75;
 }
 
 .lisst p {
@@ -327,6 +333,7 @@ body {
     font-size: 11px;
     line-height: 16px;
     display: block;
+    color: #919eba;
 }
 
 .lisst-description {

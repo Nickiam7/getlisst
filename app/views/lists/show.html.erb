@@ -1,12 +1,18 @@
-<h1><%= @list.title %></h1>
-<% @items.each do |item| %>
- <p><%= link_to item.title, list_item_path(@list, item) %> | <%= link_to "Delete", list_item_path(@list, item), method: :delete %></p>
-<% end %>
-<h3>Collaborators</h3>
-<% @list.collaborations.each do |collaboration| %>
-    <%= collaboration.user.username %> | <%= link_to "Remove", list_collaboration_path(@list, collaboration), method: :delete %>
-  <br>
-<% end %>
+<div class="uk-grid">
+  <div class="uk-width-medium-1-1">
+    <section class="uk-container">
+      <h1><%= @list.title %></h1>
+      <% @items.each do |item| %>
+       <p><%= link_to "Complete", list_item_complete_path(@list, item), method: :patch %> | <%= link_to item.title, list_item_path(@list, item) %> | <%= link_to "Delete", list_item_path(@list, item), method: :delete %></p>
+      <% end %>
+      <h3>Collaborators</h3>
+      <% @list.collaborations.each do |collaboration| %>
+          <%= collaboration.user.username %> | <%= link_to "Remove", list_collaboration_path(@list, collaboration), method: :delete %>
+        <br>
+      <% end %>
+    </section>
+  </div>
+</div>
 
 <hr>
 <h3>Add Item</h3>

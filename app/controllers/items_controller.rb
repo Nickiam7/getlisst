@@ -39,6 +39,17 @@ class ItemsController < ApplicationController
       redirect_to list_path(@list)
   end
 
+  def complete
+    @list = List.find(params[:list_id])
+    @item = Item.find(params[:item_id])
+    if @item.update(item_status: !@item.item_status)
+      flash[:notice] = "Item has been marked as completed"
+    else
+      flash[:notice] = "Something went wrong"
+    end
+    redirect_to list_path(@list)
+  end
+
   private
   def item_params
     params.require(:item).permit(:title, :description, subtasks_attributes: [:id, :name, :description, :_destroy])

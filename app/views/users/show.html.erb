@@ -20,7 +20,7 @@
                 </div>
               </div>
               <h3 class="uk-panel-title">
-                <%= link_to list.title, list_path(list) %> <i class="uk-icon-<%= list.list_completed? %> uk-text-small <%= list.list_completed_color %>"></i>
+                <%= link_to list.title, list_path(list) %> <i class="uk-icon-<%= list.list_completed? %> uk-text-small <%= list.list_completed_color %> uk-text-bold"></i>
                 <small class="uk-display-block uk-text-small">Created: <%= list.created_at.strftime("%x") %> &bull; Recipe</small>
               </h3>
               <div class="lisst-description">
