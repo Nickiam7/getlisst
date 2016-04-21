@@ -123,7 +123,7 @@ body {
     border-right: 1px solid #06a486;
     border-bottom: 1px solid #06a486;
     height: 67px;
-    padding: 0 55px;
+    padding: 0 25px;
     color: #fff;
 }
 
@@ -241,24 +241,6 @@ body {
     background: #1dceac;
     box-shadow: none;
 }
-/** end navbar **/
-
-/** forms **/
-
-/** end forms **/
-
-/*** utility ***/
-.xl-margin-large-top {
-    margin-top: 100px;
-}
-
-.uk-navbar-flip.user-photo-padding {
-    padding: 9px 58px 10px 0;
-}
-
-.cursor-pointer {
-    cursor: pointer;
-}
 
 .navbar-search-margin {
     margin-top: 15px;
@@ -274,11 +256,36 @@ body {
     margin-top: 5px;
     margin-right: 50px;
 }
+/** end navbar **/
+
+/** forms **/
+/** end forms **/
+
+/** utility **/
+.xl-margin-large-top {
+    margin-top: 100px;
+}
+
+.uk-navbar-flip.user-photo-padding {
+    padding: 9px 58px 10px 0;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.cursor-default {
+    cursor: default;
+}
 
 .uk-dropdown-grid h3 {
     color: #919eba;
 }
 
+/** end utility **/
+
+
+/** Lissts **/
 .lisst {
     border: 1px solid #d2d9e8;
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.03);
@@ -340,6 +347,58 @@ body {
     min-height: 27px;
 }
 
-.completed_list_item_color {
+.completed_green {
     color: #1dceac;
 }
+
+/** lisst **/
+
+/** lisst stats **/
+
+#stats-panel {
+    background: #fff;
+    border-top: 1px solid #d2d9e8;
+    border-left: 0;
+    border-right: 1px solid #d2d9e8;
+    border-bottom: 1px solid #d2d9e8;
+    border-radius: 2px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.03);
+    margin-bottom: 25px;
+}
+
+#stats-panel section {
+    border-left: 1px solid #d2d9e8;
+}
+
+#stats-panel section .stats-panel-heading h3 {
+    color: #919eba;
+    font-size: 12px;
+    margin-bottom: 0;
+    opacity: 0.65;
+    padding: 0 5px;
+    text-align: left;
+}
+
+#stats-panel section .stats-panel-body p {
+    color: #717e9a;
+    font-size: 35px;
+    font-weight: bold;
+    padding: 20px;
+    text-align: center;
+}
+
+#stats-panel section .stats-panel-footer {
+    border-top: 1px solid #d2d9e8;
+    background-color: rgba(145, 158, 186, 0.07);
+    text-align: center;
+    padding: 5px;
+}
+
+#stats-panel section .stats-panel-footer .stats-panel-percent {
+    color: #717e9a;
+    font-size: 80%;
+    font-weight: bold;
+}
+/** end lisst stats **/
+
+

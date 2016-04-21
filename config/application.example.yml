@@ -1,0 +1,7 @@
+AWS_ACCESS_KEY_ID: #Place your AWS Access Key ID here
+AWS_SECRET_ACCESS_KEY: #Place your AWS Secret Access Key here
+
+development:
+  AWS_BUCKET: #Place your AWS S3 development bucket name here
+production:
+  AWS_BUCKET: #Place your AWS S3 production bucket name here
