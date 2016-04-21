@@ -2,7 +2,67 @@
 <div class="uk-grid">
   <section class="uk-width-medium-3-4 uk-margin-large-top">
     <div class="uk-container">
-      <div class="uk-grid uk-grid-small uk-grid-match" data-uk-grid-match="{target:'.uk-panel'}">
+      <div id="stats-panel">
+        <div class="uk-grid uk-grid-collapse">
+          <div class="uk-width-medium-1-3">
+            <section id="lissts">
+              <div class="stats-panel-heading">
+                <h3>Total Lissts <i class="uk-icon-question-circle uk-float-right cursor-default" style="padding-top: 5px;" data-uk-tooltip="{animation: true}" title="Only includes your own lissts."></i></h3>
+              </div>
+              <div class="stats-panel-body">
+                <p><%= @lists.count %> <%= "Lisst".pluralize(@lists.count) %></p>
+              </div>
+              <div class="stats-panel-footer">
+                <ul class="uk-grid uk-grid-width-1-2">
+                  <li>
+                    <%= @lists.count %>
+                  </li>
+                </ul>
+              </div>
+            </section>
+          </div>
+          <div class="uk-width-medium-1-3">
+            <section id="items">
+              <div class="stats-panel-heading">
+                <h3>Total Lisst Items <i class="uk-icon-question-circle uk-float-right cursor-default" style="padding-top: 5px;" data-uk-tooltip="{animation: true}" title="Only includes items from your own lissts."></i></h3>
+              </div>
+              <div class="stats-panel-body">
+                <p><%= @user.items.count %> <%= "Item".pluralize(@user.items.count) %></p>
+              </div>
+              <div class="stats-panel-footer">
+                <ul class="uk-grid uk-grid-width-1-2">
+                  <li>
+                    <span class="uk-margin-small-right completed_green"><strong><%= @user.items.complete.count %></strong> <small>complete</small></span>
+                    <span class="uk-margin-small-left uk-text-danger"><strong><%= @user.items.incomplete.count %></strong> <small>incomplete</small></span>
+                  </li>
+                  <li class="uk-text-right">
+                    <p class="stats-panel-percent"><%= @user.user_items_complete %>%</p>
+                  </li>
+                </ul>
+              </div>
+            </section>
+          </div>
+          <div class="uk-width-medium-1-3">
+            <section id="categories">
+              <div class="stats-panel-heading">
+                <h3>Category Breakdown</h3>
+              </div>
+              <div class="stats-panel-body">
+                <p><%= @user.items.count %> <%= "Item".pluralize(@user.items.count) %></p>
+              </div>
+              <div class="stats-panel-footer">
+                <ul class="uk-grid uk-grid-width-1-2">
+                  <li>
+                    <p><%= @lists.count %></p>
+                  </li>
+                </ul>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+      <hr class="uk-grid-divider">
+      <div class="uk-grid uk-grid-small uk-grid-match uk-margin-top-remove" data-uk-grid-match="{target:'.uk-panel'}">
         <% @lists.each do |list| %>
           <article class="uk-width-medium-1-3 uk-margin-bottom">
             <div class="uk-panel uk-panel-box uk-panel-box-secondary lisst">
@@ -35,17 +95,17 @@
                 <% end %>
               </div>
               <div class="lisst-stats">
-                <div class="uk-grid uk-grid-divider uk-grid-small uk-margin-small-bottom">
+                <div class="uk-grid uk-margin-small-bottom">
                   <div class="uk-width-1-3 lisst-items">
-                    <strong><%= list.items.count %></strong>
+                    <strong class="uk-text-center"><%= list.items.count %></strong>
                     <small><%= "item".pluralize(list.items.count) %></small>
                   </div>
                   <div class="uk-width-1-3 complete">
-                    <strong><%= list.items.complete.count %></strong>
+                    <strong class="uk-text-center"><%= list.items.complete.count %></strong>
                     <small>Complete</small>
                   </div>
                   <div class="uk-width-1-3 incomplete">
-                    <strong><%= list.items.incomplete.count %></strong>
+                    <strong class="uk-text-center"><%= list.items.incomplete.count %></strong>
                     <small >incomplete</small>
                   </div>
                 </div>

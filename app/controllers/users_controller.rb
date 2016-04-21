@@ -23,7 +23,6 @@ class UsersController < ApplicationController
     redirect_to edit_user_registration_path
   end
 
-
   private
   def user_params
     params.require(:user).permit(:user_photo)
