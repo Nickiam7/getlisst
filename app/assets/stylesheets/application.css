@@ -123,8 +123,9 @@ body {
     border-right: 1px solid #06a486;
     border-bottom: 1px solid #06a486;
     height: 67px;
-    padding: 0 25px;
+    padding: 10px 25px;
     color: #fff;
+    text-shadow: none;
 }
 
 /**navbar dropdown**/
@@ -397,8 +398,9 @@ body {
 #stats-panel section .stats-panel-footer .stats-panel-percent {
     color: #717e9a;
     font-size: 80%;
-    font-weight: bold;
+    font-weight: normal;
 }
+
 /** end lisst stats **/
 
 
