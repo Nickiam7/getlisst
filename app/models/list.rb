@@ -8,12 +8,22 @@ class List < ActiveRecord::Base
   validates :title, presence: true
   validates :description, length: {maximum: 160}
 
-  def list_completed?
-    items.any? && (items.count == items.complete.count) ? "check-square-o" : "minus-square-o"
+  scope :list_complete, -> {where(list_status: true)}
+  scope :list_incomplete, -> {where(list_status: false)}
+
+
+  def update_list_status
+    if items.any? && (items.count == items.complete.count)
+        update_attribute(:list_status, true)
+        "check-square-o"
+    else
+        update_attribute(:list_status, false)
+        "minus-square-o"
+    end
   end
 
   def list_completed_color
-    list_completed? == "check-square-o" ? "uk-text-success" : "uk-text-danger"
+    update_list_status == "check-square-o" ? "uk-text-success" : "uk-text-danger"
   end
 
   def list_percentage_complete

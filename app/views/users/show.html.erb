@@ -13,11 +13,9 @@
                 <p><%= @lists.count %> <%= "Lisst".pluralize(@lists.count) %></p>
               </div>
               <div class="stats-panel-footer">
-                <ul class="uk-grid uk-grid-width-1-2">
-                  <li>
-                    <%= @lists.count %>
-                  </li>
-                </ul>
+                <span class="uk-margin-small-right completed_green"><strong><%= @user.lists.list_complete.count %></strong> <small>complete</small></span>
+                <span class="uk-margin-small-right uk-margin-small-left uk-text-danger"><strong><%= @user.lists.list_incomplete.count %></strong> <small>incomplete</small></span>
+                <span class="stats-panel-percent uk-margin-small-left"><strong><%= @user.user_lists_complete %></strong><small>%</small> complete</span>
               </div>
             </section>
           </div>
@@ -30,15 +28,9 @@
                 <p><%= @user.items.count %> <%= "Item".pluralize(@user.items.count) %></p>
               </div>
               <div class="stats-panel-footer">
-                <ul class="uk-grid uk-grid-width-1-2">
-                  <li>
-                    <span class="uk-margin-small-right completed_green"><strong><%= @user.items.complete.count %></strong> <small>complete</small></span>
-                    <span class="uk-margin-small-left uk-text-danger"><strong><%= @user.items.incomplete.count %></strong> <small>incomplete</small></span>
-                  </li>
-                  <li class="uk-text-right">
-                    <p class="stats-panel-percent"><%= @user.user_items_complete %>%</p>
-                  </li>
-                </ul>
+                <span class="uk-margin-small-right completed_green"><strong><%= @user.items.complete.count %></strong> <small>complete</small></span>
+                <span class="uk-margin-small-right uk-margin-small-left uk-text-danger"><strong><%= @user.items.incomplete.count %></strong> <small>incomplete</small></span>
+                <span class="stats-panel-percent uk-margin-small-left"><strong><%= @user.user_items_complete %></strong><small>%</small> complete</span>
               </div>
             </section>
           </div>
@@ -53,7 +45,7 @@
               <div class="stats-panel-footer">
                 <ul class="uk-grid uk-grid-width-1-2">
                   <li>
-                    <p><%= @lists.count %></p>
+                    <!-- Add Stats HERE -->
                   </li>
                 </ul>
               </div>
@@ -80,7 +72,7 @@
                 </div>
               </div>
               <h3 class="uk-panel-title">
-                <%= link_to list.title, list_path(list) %> <i class="uk-icon-<%= list.list_completed? %> uk-text-small <%= list.list_completed_color %> uk-text-bold"></i>
+                <%= link_to list.title, list_path(list) %> <i class="uk-icon-<%= list.update_list_status %> uk-text-small <%= list.list_completed_color %> uk-text-bold"></i>
                 <small class="uk-display-block uk-text-small">Created: <%= list.created_at.strftime("%x") %> &bull; Recipe</small>
               </h3>
               <div class="lisst-description">
@@ -116,7 +108,7 @@
                     </div>
                   </div>
                   <div class="uk-width-1-6" style="margin-top: 10px;">
-                    <p><%= list.list_percentage_complete %>%</p>
+                    <p class="uk-text-small"><%= list.list_percentage_complete %>%</p>
                   </div>
                 </div>
               </div>
